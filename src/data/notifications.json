@@ -1,0 +1,140 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "user": {
+        "name": "Mark Webber",
+        "avatar": "/avatar/avatar-mark-webber.webp"
+      },
+      "action": {
+        "type": "react",
+        "details": "reacted to your recent post",
+        "message": "My first tournament today!",
+        "post": ""
+      },
+      "date": "2024-10-08T14:38",
+      "status": "unread"
+    },
+    {
+      "id": 2,
+      "user": {
+        "name": "Angela Gray",
+        "avatar": "/avatar/avatar-angela-gray.webp"
+      },
+      "action": {
+        "type": "follow",
+        "details": "followed you",
+        "message": "",
+        "post": ""
+      },
+      "date": "2024-10-08T14:33",
+      "status": "unread"
+    },
+    {
+      "id": 3,
+      "user": {
+        "name": "Jacob Thompson",
+        "avatar": "/avatar/avatar-jacob-thompson.webp"
+      },
+      "action": {
+        "type": "join",
+        "details": "has joined your group",
+        "message": "Chess Club",
+        "post": ""
+      },
+      "type": "join",
+      "date": "2024-10-08T08:30",
+      "status": "unread"
+    },
+    {
+      "id": 4,
+      "user": {
+        "name": "Rizky Hasanuddin",
+        "avatar": "/avatar/avatar-rizky-hasanuddin.webp"
+      },
+      "action": {
+        "type": "message",
+        "details": "sent you a private message",
+        "message": "Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.",
+        "post": ""
+      },
+      "date": "2024-10-04T08:30",
+      "status": "read"
+    },
+    {
+      "id": 5,
+      "user": {
+        "name": "Kimberly Smith",
+        "avatar": "/avatar/avatar-kimberly-smith.webp"
+      },
+      "action": {
+        "type": "comment",
+        "details": "commented on your picture",
+        "message": "",
+        "post": "/posts/image-chess.webp"
+      },
+      "date": "2024-10-01T08:30",
+      "status": "read"
+    },
+    {
+      "id": 6,
+      "user": {
+        "name": "Nathan Peterson",
+        "avatar": "/avatar/avatar-nathan-peterson.webp"
+      },
+      "action": {
+        "type": "react",
+        "details": "reacted to your recent post",
+        "message": "5 end-game strategies to increase your win rate",
+        "post": ""
+      },
+      "date": "2024-09-30T08:30",
+      "status": "read"
+    },
+    {
+      "id": 7,
+      "user": {
+        "name": "Anna Kim",
+        "avatar": "/avatar/avatar-anna-kim.webp"
+      },
+      "action": {
+        "type": "leave",
+        "details": "left the group",
+        "message": "Chess Club",
+        "post": ""
+      },
+      "date": "2024-09-30T08:30",
+      "status": "read"
+    },
+    {
+      "id": 8,
+      "user": {
+        "name": "Jacob Thompson",
+        "avatar": "/avatar/avatar-jacob-thompson.webp"
+      },
+      "action": {
+        "type": "leave",
+        "details": "left the group",
+        "message": "Chess Club",
+        "post": ""
+      },
+      "date": "2024-09-20T08:30",
+      "status": "read"
+    },
+    {
+      "id": 9,
+      "user": {
+        "name": "Angela Gray",
+        "avatar": "/avatar/avatar-angela-gray.webp"
+      },
+      "action": {
+        "type": "join",
+        "details": "has joined your group",
+        "message": "Chess Club",
+        "post": ""
+      },
+      "date": "2024-09-20T08:30",
+      "status": "read"
+    }
+  ]
+}
