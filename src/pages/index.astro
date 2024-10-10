@@ -1,90 +1,21 @@
 ---
-import DATA_NOTIFICATIONS from "../data/notifications.json"
+import AllNotice from "../components/Notifications/AllNotice.astro"
+import HeaderNotice from "../components/Notifications/HeaderNotice.astro"
 import Layout from "../layouts/Layout.astro"
-import { datesDifference } from "../lib/time.ts"
-
-const notifications = DATA_NOTIFICATIONS.data
 ---
 
 <Layout title="Welcome to Astro.">
 	<section
-		class="bg-app-900 shadow-app max-h-3xl mx-auto w-full max-w-3xl overflow-hidden rounded-2xl p-8"
+		class="mx-auto max-h-3xl w-full max-w-3xl overflow-hidden rounded-2xl bg-app-900 p-8 shadow-app"
 	>
 		<article class="grid h-full max-h-[calc(52.5rem-32px-32px)] grid-rows-[auto,1fr] gap-y-8">
-			<header class="flex items-center justify-between gap-x-5">
-				<h2 class="text-2xl font-bold">
-					<span class="inline-flex items-center justify-center gap-x-3">
-						Notifications
-						<span
-							class="bg-app-100 h-6 min-w-8 rounded-md px-2 text-center text-sm font-semibold leading-6 text-white"
-							>3</span
-						>
-					</span>
-				</h2>
-
-				<button class="text-app-400 hover:text-app-100 transition-colors duration-300 ease-in">
-					<span class="text-base font-medium">Mark all as read</span>
-				</button>
-			</header>
+			<HeaderNotice />
 
 			<div class="no-scrollbar relative size-full max-h-full overflow-auto">
 				<!-- <div class="absolute left-0 right-0 top-0 h-10 w-full bg-gradient-to-b from-white"></div> -->
 				<!-- <div class="absolute bottom-0 left-0 right-0 h-10 w-full bg-gradient-to-t from-white"></div> -->
 
-				<ul class="space-y-2">
-					{
-						notifications.map(({ id, user, action, date, status }) => {
-							const dateDifference = datesDifference({ date })
-
-							return (
-								<li
-									class:list={["rounded-lg p-5", { "bg-app-800": status === "unread" }]}
-									data-not={id}
-								>
-									<div class="flex flex-nowrap items-start justify-start gap-x-5">
-										<picture class="size-11 min-w-11 overflow-hidden rounded-full">
-											<img
-												class="aspect-square size-full object-cover"
-												src={user.avatar}
-												alt={`${user.name}'s avatr in notifications component`}
-											/>
-										</picture>
-
-										<div class="flex flex-col gap-y-3">
-											<div class="text-app-400 space-y-1 text-base">
-												<p class="leading-normal">
-													<span class="text-app-300 hover:text-app-100 cursor-pointer font-bold transition-colors duration-300 ease-in">
-														{user.name}
-													</span>
-													<span>{action.details}</span>
-													{action.message && action.type === "react" && (
-														<span class="hover:text-app-100 cursor-pointer font-bold transition-colors duration-300 ease-in">
-															{action.message}
-														</span>
-													)}
-
-													{status === "unread" && (
-														<span class="bg-app-200 ml-1 inline-block size-2 items-center rounded-full align-middle" />
-													)}
-												</p>
-
-												<div>
-													<span>{`${dateDifference}`}</span>
-												</div>
-											</div>
-
-											{action.message && action.type === "message" && (
-												<div class="bg-app-900 shadow-inner-box text-app-400 hover:bg-app-600 w-full flex-grow cursor-pointer overflow-hidden rounded-md p-5 transition-colors duration-300 ease-in">
-													{action.message}
-												</div>
-											)}
-										</div>
-									</div>
-								</li>
-							)
-						})
-					}
-				</ul>
+				<AllNotice />
 			</div>
 		</article>
 	</section>

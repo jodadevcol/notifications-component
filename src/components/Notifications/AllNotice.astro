@@ -1,0 +1,47 @@
+---
+// import DATA_NOTIFICATIONS from "../data/notifications.json"
+import { Action, db, eq, Notification, User } from "astro:db"
+import CardNotice from "./CardNotice.astro"
+
+const notifications = await db
+	.select({
+		notification_id: Notification.notification_id,
+		date: Notification.date,
+		status: Notification.status,
+		user: {
+			user_id: User.user_id,
+			name: User.name,
+			avatar: User.avatar,
+		},
+		action: {
+			action_id: Action.action_id,
+			type: Action.type,
+			details: Action.details,
+			message: Action.message,
+		},
+	})
+	.from(Notification)
+	.innerJoin(User, eq(Notification.user, User.user_id))
+	.innerJoin(Action, eq(Notification.action, Action.action_id))
+---
+
+<ul class="space-y-2">
+	{
+		notifications.map(({ notification_id, user, action, date, status }) => {
+			return (
+				<li data-not={notification_id}>
+					<CardNotice
+						server:defer
+						notification={{
+							id: notification_id,
+							user,
+							action,
+							date,
+							status: status as "read" | "unread",
+						}}
+					/>
+				</li>
+			)
+		})
+	}
+</ul>

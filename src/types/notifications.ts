@@ -6,7 +6,7 @@ export interface Notification {
 	id: number
 	user: User
 	action: Action
-	date: string
+	date: Date | string
 	status: "unread" | "read"
 	type?: string
 }

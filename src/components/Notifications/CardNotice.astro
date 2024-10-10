@@ -1,0 +1,66 @@
+---
+import { datesDifference } from "../../lib/time"
+import type { Notification } from "../../types/notifications"
+
+interface Props {
+	notification: Notification
+}
+
+const { notification } = Astro.props
+
+const { user, action, date, status } = notification
+const dateDifference = datesDifference({ date })
+---
+
+<div
+	class:list={[
+		"flex flex-nowrap items-start justify-start gap-x-5 rounded-lg p-5",
+		{ "bg-app-800": status === "unread" },
+	]}
+>
+	<picture class="size-11 min-w-11 overflow-hidden rounded-full">
+		<img
+			class="aspect-square size-full object-cover"
+			src={user.avatar}
+			alt={`${user.name}'s avatr in notifications component`}
+		/>
+	</picture>
+
+	<div class="flex flex-col gap-y-3">
+		<div class="space-y-1 text-base text-app-400">
+			<p class="leading-normal">
+				<span
+					class="cursor-pointer font-bold text-app-300 transition-colors duration-300 ease-in hover:text-app-100"
+				>
+					{user.name}
+				</span>
+				<span>{action?.details}</span>
+				{
+					action.message && action.type === "react" && (
+						<span class="cursor-pointer font-bold transition-colors duration-300 ease-in hover:text-app-100">
+							{action.message}
+						</span>
+					)
+				}
+
+				{
+					status === "unread" && (
+						<span class="ml-1 inline-block size-2 items-center rounded-full bg-app-200 align-middle" />
+					)
+				}
+			</p>
+
+			<div>
+				<span>{`${dateDifference}`}</span>
+			</div>
+		</div>
+
+		{
+			action.message && action.type === "message" && (
+				<div class="w-full flex-grow cursor-pointer overflow-hidden rounded-md bg-app-900 p-5 text-app-400 shadow-inner-box transition-colors duration-300 ease-in hover:bg-app-600">
+					{action.message}
+				</div>
+			)
+		}
+	</div>
+</div>
